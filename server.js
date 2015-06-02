@@ -1,7 +1,8 @@
 var express = require('express'),
     mongoose = require('mongoose'),
     router = express.Router(),
-    app = express();
+    app = express(),
+    Visit = require('./visits/VisitModel');
 
 app.use(express.static('public'));
 
@@ -10,7 +11,7 @@ app.get( '/api/', function(req, res) {
 });
 
 app.get( 'api/visits/', function(req, res){
-  return VisitModel.find(function(err, visits){
+  return Visit.find(function(err, visits){
     if (!err) {
       return res.send(visits);
     } else {
@@ -26,16 +27,10 @@ app.listen( port, function() {
 
 //Connect to database
 
-mongoose.connect('mongodb://localhost/visit_database');
+mongoose.connect('mongodb://localhost/whvisits');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function (callback) {
   console.log('Connected to database');
 });
-
-//Schemas
-
-var Visit = new mongoose.Schema({
-
-})

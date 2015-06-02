@@ -10,7 +10,7 @@ var VisitSchema = new mongoose.Schema({
   TOA: Date,
   POA: String,
   TOD: Date,
-  POD: String
+  POD: String,
   APPT_MADE_DATE: Date,
   APPT_START_DATE: Date,
   APPT_END_DATE: Date,
