@@ -9,6 +9,16 @@ app.get( '/api/', function(req, res) {
   res.send('API is running');
 });
 
+app.get( 'api/visits/', function(req, res){
+  return VisitModel.find(function(err, visits){
+    if (!err) {
+      return res.send(visits);
+    } else {
+      return console.log(err);
+    }
+  });
+})
+
 var port = process.envPORT || 3000;
 app.listen( port, function() {
   console.log( 'Express server listening on port ', port );

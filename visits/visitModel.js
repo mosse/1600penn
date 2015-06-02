@@ -31,7 +31,8 @@ var VisitSchema = new mongoose.Schema({
   Release_Date: Date
 });
 
-module.exports = mongoose.model('visits', VisitSchema);
+var VisitModel = mongoose.model('visit', VisitSchema);
+module.exports = VisitModel;
 
 // Schema field details:
 // UIN - Appointment Number 
